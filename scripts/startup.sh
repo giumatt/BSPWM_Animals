@@ -4,17 +4,14 @@
 
 setxkbmap us -variant intl
 $HOME/.screenlayout/ciao.sh &
-nitrogen --restore &
 xsetroot -cursor_name left_ptr &
-#xsetwacom set "Wacom Intuos S 2 Pen stylus" Area 0 0 15200 8550 &
-#xsetwacom set "Wacom Intuos S 2 Pen stylus" MapToOutput 1920x1080+0+0 &
-picom &
-$HOME/.config/polybar/launch.sh &
-dunst -conf $HOME/.config/dunst/dunstrc &
 
-# To launch one time Bitwarden and opensnitch
-#pgrep -f bitwarden > /dev/null || bitwarden-desktop &
-pgrep -x opensnitch-ui > /dev/null || opensnitch-ui
+# User applications
 
-#redshift &
-numlockx &
+#picom &
+#$HOME/.config/polybar/launch.sh &
+#dunst -conf $HOME/.config/dunst/dunstrc &
+#nitrogen --restore &
+## To launch one time opensnitch
+#pgrep -x opensnitch-ui > /dev/null || opensnitch-ui
+#numlockx &
