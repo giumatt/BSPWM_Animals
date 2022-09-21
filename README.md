@@ -5,8 +5,9 @@ Questa repo contiene i dotfiles per la configurazione di Arch Linux + BSPWM.
 Utilizza inoltre picom, polybar, rofi e dunst.
 È presente uno **script** per **automatizzare** quasi tutto il procedimento di installazione.
 
-Per eseguirlo non servono i permessi di root in quanto molti package vengono installati utilizzano
-[YAY](https://github.com/Jguer/yay)
+**!!**
+Per eseguire lo script non servono i permessi di root in quanto molti package vengono installati utilizzano
+[YAY](https://github.com/Jguer/yay).
 
 # EN
 This repo contains dotfiles for Arch Linux + BSPWM configuration.

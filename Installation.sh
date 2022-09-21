@@ -69,21 +69,20 @@ system_install_IT () {
     set -x
     sudo systemctl enable sddm.service
     sudo systemctl start sddm.service
-    sudo rm -rf /usr/lib/sddm/sddm.conf.d/default.conf
-    sudo cp system_files/SDDM/Xsetup /usr/share/sddm/scripts/
-    sudo cp system_files/SDDM/default.conf /usr/lib/sddm/sddm.conf.d/
     set +x
 
     echo "\n Copio i file di configurazione"
     cp -r alacritty bspwm sxhkd ~/.config
     cp -r Sfondi ~/Pictures
+    sudo cp system_files/30-touchpad.conf /etc/X11/xorg.conf.d
+    sudo chown root:root /etc/X11/xorg.conf.d/30-touchpad.conf
 
     echo "\n Installo i fonts"
     set -x
     yay -S - < fonts.txt
     set +x
 
-    echo "\n Ricordati di installare i Nerd Fonts.\n"
+    echo "\n Ricordati di installare i Nerd Fonts, Material Icons e SanFranciscoPro.\n"
 
     echo "\n È consigliato riavviare il sistema.\n"
 
@@ -150,17 +149,19 @@ app_themes_IT () {
 
         0)
             set -x
-            git clone https://github.com/BetterDiscord/BetterDiscord.git && cd BetterDiscord
+            git clone https://github.com/BetterDiscord/BetterDiscord.git
+            mv BetterDiscord ~
+            cd ~/BetterDiscord
             npm install
             npm run build
             npm run inject
             set +x
 
+            cd ~/BSPWM_Animals
+
             echo "Clono il file CSS del tema"
             wget https://raw.githubusercontent.com/catppuccin/discord/master/Catppuccin.theme.css
             cp Catppuccin.theme.css ~/.config/BetterDiscord/themes
-
-            cd ~/BSPWM_Animals
 
             echo "Tema installato correttamente. \n"
             read -p "Tornare al menu precedente? (Y/n)" yn
@@ -203,7 +204,9 @@ app_themes_IT () {
             sudo chmod a+wr /opt/spotify/Apps -R
 
             echo "Clono il tema da GitHub"
+            set -x
             git clone https://github.com/catppuccin/spicetify
+            set +x
             cp -r spicetify/catppuccin-mocha ~/.config/spicetify/Themes/
             cp spicetify/js/catppuccin-mocha.js ~/.config/spicetify/Extensions/
 
@@ -229,9 +232,32 @@ app_themes_IT () {
 
             ;;
         3)
-            # WIP
-            install_ITA
+            echo "Clono il tema da GitHub"
+            set -x
+            git clone https://github.com/catppuccin/sddm
+            set -x
+            mv sddm Catppuccin
+            sudo cp -r Catppuccin /usr/share/sddm/themes
 
+            echo "Imposto il tema per SDDM"
+            sudo rm -rf /usr/lib/sddm/sddm.conf.d/default.conf
+            sudo cp system_files/SDDM/Xsetup /usr/share/sddm/scripts/
+            sudo cp system_files/SDDM/default.conf /usr/lib/sddm/sddm.conf.d/
+            sudo chown root:root /usr/lib/sddm/sddm.conf.d/default.conf
+            sudo chown root:root /usr/share/sddm/scripts/Xsetup
+            echo "Fatto.
+            È consigliato riavviare il sistema."
+
+            read -p "Tornare al menu precedente? (Y/n)" yn
+
+            if [ "$yn" = "Y" ] || [ "$yn" = "y" ]; then
+                rm -rf 
+                themes_menu
+            elif [ "$yn" = "N" ] || [ "$yn" = "n" ]; then
+                final_step
+            fi
+
+            ;;
         4)
             install_ITA
 
