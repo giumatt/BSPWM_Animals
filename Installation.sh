@@ -5,11 +5,11 @@ install_ITA () {
 
     echo "Cosa vuoi fare?
     È consigliato seguire questi step in ordine:
-    0) Installa il sistema ed i font (solo bspwm e sxhkd ed imposta lo sfondo);
+    0) Installa il sistema ed i font;
     1) Installa le applicazioni principali ed imposta lo sfondo (polybar, rofi, picom, ...);
     2) Installa le applicazioni opzionali;
     3) Configura i temi per alcune applicazioni;
-    ) Esci."
+    4) Esci."
     read -p "La tua scelta (0-3): " choice
 
     case $choice in
@@ -104,7 +104,14 @@ main_applications_IT () {
     set +x
 
     echo "\n Copio i file di configurazione"
-    cp -r dunst picom polybar ranger zathura ~/.config
+    cp -r dunst picom polybar ranger rofi zathura ~/.config
+
+    sudo chmod +x ~/.config/polybar/scripts/*
+    sudo chmod +x ~/.config/polybar/launch.sh
+    sudo chmod +x ~/.config/bspwm/layout/layout.sh
+    sudo chmod +x ~/.config/bspwm/layout/startup.sh
+    sudo chmod +x ~/.config/dunst/reload.sh
+    sudo chmod +x ~/.config/rofi/launch.sh
 
     echo "\n Imposto lo sfondo"
     nitrogen --set-auto Pictures/Sfondi/Pink-Floyd-Animals-Expanded.jpg
@@ -123,7 +130,7 @@ user_applications_IT () {
     set -x
     yay -S - < user_programs.txt
     set +x
-    
+
     echo "\n Terminato"
     final_step
 }
@@ -171,7 +178,6 @@ app_themes_IT () {
             elif [ "$yn" = "N" ] || [ "$yn" = "n" ]; then
                 final_step
             fi
-
             ;;
         1)
             set -x
@@ -190,7 +196,6 @@ app_themes_IT () {
             elif [ "$yn" = "N" ] || [ "$yn" = "n" ]; then
                 final_step
             fi
-
             ;;
         2)
             echo "Installo Spicetify"
@@ -229,7 +234,6 @@ app_themes_IT () {
             elif [ "$yn" = "N" ] || [ "$yn" = "n" ]; then
                 final_step
             fi
-
             ;;
         3)
             echo "Clono il tema da GitHub"
@@ -256,15 +260,12 @@ app_themes_IT () {
             elif [ "$yn" = "N" ] || [ "$yn" = "n" ]; then
                 final_step
             fi
-
             ;;
         4)
             install_ITA
-
             ;;
         *)
             exit 0
-
             ;;
     esac     
 }
