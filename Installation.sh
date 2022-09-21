@@ -228,6 +228,9 @@ app_themes_IT () {
             fi
 
             ;;
+        3)
+            # WIP
+            install_ITA
 
         4)
             install_ITA
