@@ -6,6 +6,7 @@ Utilizza inoltre picom, polybar, rofi e dunst.
 È presente uno **script** per **automatizzare** quasi tutto il procedimento di installazione.
 
 **!!**
+
 Per eseguire lo script non servono i permessi di root in quanto molti package vengono installati utilizzano
 [YAY](https://github.com/Jguer/yay).
 
