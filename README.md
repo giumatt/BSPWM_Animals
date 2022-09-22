@@ -11,7 +11,7 @@
 
 <h2></h2>
 
-# HynDuf's dotfiles
+# giumatt's dotfiles
 
 ## :pencil: <samp>Table of contents</samp>
 
