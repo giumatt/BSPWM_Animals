@@ -3,6 +3,7 @@ firefox
 flameshot
 github-cli
 grub-customizer
+gnome-keyring
 htop
 i3lock-color
 jre-openjdk

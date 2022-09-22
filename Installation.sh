@@ -105,12 +105,12 @@ main_applications_IT () {
 
     echo "\n Copio i file di configurazione"
     cp -r dunst picom polybar ranger rofi zathura ~/.config
-
-    sudo chmod +x ~/.config/polybar/scripts/*
-    sudo chmod +x ~/.config/polybar/launch.sh
+    
     sudo chmod +x ~/.config/bspwm/layout/layout.sh
     sudo chmod +x ~/.config/bspwm/layout/startup.sh
     sudo chmod +x ~/.config/dunst/reload.sh
+    sudo chmod +x ~/.config/polybar/scripts/*
+    sudo chmod +x ~/.config/polybar/launch.sh
     sudo chmod +x ~/.config/rofi/launch.sh
 
     echo "\n Imposto lo sfondo"
