@@ -137,7 +137,7 @@ super + x
 	exec $HOME/scripts/screen_lock.sh
 
 # flameshot command
-alt + F12
+Print
 	flameshot gui
 
 # startup launch script
@@ -152,7 +152,7 @@ alt + shift + a
 super + z
 	noticenter
 
-# Audio settings for internal keyboard
+# Audio settings
 XF86AudioRaiseVolume
 	pactl set-sink-volume @DEFAULT_SINK@ +5%
 
@@ -170,4 +170,7 @@ XF86AudioPrev
 
 XF86AudioPlay
 	playerctl play-pause -p spotify
+
+XF86AudioStop
+	playerctl stop -p spotify
 

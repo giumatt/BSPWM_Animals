@@ -6,7 +6,6 @@ highlight=565f89
 date=7aa2f7
 verify=7aa2f7
 
-
 lock_Internal() {
     i3lock -n --force-clock -i ~/Pictures/Sfondi/Pink-Floyd-Animals-Expanded.jpg \
     -e --indicator --radius=20 --ring-width=40 --inside-color=$fg \
@@ -46,4 +45,3 @@ if echo "$x" | grep "HDMI-A-0 disconnected"; then
 else
     lock_External
 fi
-
