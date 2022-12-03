@@ -540,9 +540,10 @@ app_themes_EN () {
         *)
             exit 0
             ;;
-            
+    esac
 }
 
+# dj
 
 # Main function
 read -p "Select your language (IT or EN): " language
