@@ -30,4 +30,5 @@ thunderbird
 timeshift
 unrar
 unzip
+xdg-user-dirs
 yad

@@ -114,8 +114,9 @@ main_applications_IT () {
     sudo chmod +x ~/.config/polybar/launch.sh
     sudo chmod +x ~/.config/rofi/launch.sh
 
-    # TO-DO aggiungere sfondo alla repo
     echo "\n Imposto lo sfondo"
+    mkdir $HOME/Pictures/Wallpapers
+    cp Pink-Floyd-Animals-Expanded.jpg $HOME/Pictures/Wallpapers
     nitrogen --set-auto Pictures/Sfondi/Pink-Floyd-Animals-Expanded.jpg
 
     sed -i '11,17 s/^#//' ~/scripts/startup.sh 
@@ -387,6 +388,8 @@ main_applications_EN () {
     sudo chmod +x ~/.config/rofi/launch.sh
 
     echo "Setting the wallpaper..."
+    mkdir $HOME/Pictures/Wallpapers
+    cp Pink-Floyd-Animals-Expanded.jpg $HOME/Pictures/Wallpapers
     nitrogen --set-auto Pictures/Sfondi/Pink-Floyd-Animals-Expanded.jpg
 
     sed -i '11,17 s/^#//' ~/scripts/startup.sh 
