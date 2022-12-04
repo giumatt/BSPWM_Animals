@@ -284,7 +284,7 @@ install_ENG () {
     2) Install optional applications;
     3) Configure the theme for some applications;
     4) Exit."
-    rear -p "Your choiche (0-4): " choice
+    read -p "Your choiche (0-4): " choice
 
     case $choice in
 
