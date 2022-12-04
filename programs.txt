@@ -10,7 +10,6 @@ jre-openjdk
 jre-openjdk-headless
 libreoffice-fresh
 lxappearance
-multimc-bin
 neofetch
 neovim
 npm
@@ -21,9 +20,9 @@ pavucontrol
 picom-ibhagwan-git
 pipewire
 pipewire-alsa
-pipewire-media-session
+wireplumber
 pipewire-pulse
-polybar-git
+polybar
 ranger
 rofi
 thunderbird

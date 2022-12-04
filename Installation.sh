@@ -59,8 +59,8 @@ final_step_IT () {
 system_install_IT () {
     clear
 
-    cp -r scripts ~
-    chmod +x ~/scripts/*
+    cp -r scripts $HOME
+    chmod +x $HOME/scripts/*
 
     echo "Installo Window Manager, Display Manager (SDDM) ed Alacritty..."
     set -x
@@ -73,8 +73,8 @@ system_install_IT () {
     set +x
 
     echo "\n Copio i file di configurazione"
-    cp -r alacritty bspwm sxhkd ~/.config
-    cp -r Sfondi ~/Pictures
+    cp -r alacritty bspwm sxhkd $HOME/.config
+    cp -r Sfondi $HOME/Pictures
     sudo cp system_files/30-touchpad.conf /etc/X11/xorg.conf.d
     sudo chown root:root /etc/X11/xorg.conf.d/30-touchpad.conf
 
@@ -82,7 +82,7 @@ system_install_IT () {
     git clone https://aur.archlinux.org/yay.git && cd yay
     makepkg -si
     cd ../BSPWM_Animals
-    rm -rf ~/yay
+    rm -rf $HOME/yay
 
     echo "\n Installo i fonts"
     set -x
@@ -105,21 +105,21 @@ main_applications_IT () {
     set +x
 
     echo "\n Copio i file di configurazione"
-    cp -r dunst picom polybar ranger rofi zathura ~/.config
+    cp -r dunst picom polybar ranger rofi zathura $HOME/.config
     
-    sudo chmod +x ~/.config/bspwm/layout/layout.sh
-    sudo chmod +x ~/.config/bspwm/layout/startup.sh
-    sudo chmod +x ~/.config/dunst/reload.sh
-    sudo chmod +x ~/.config/polybar/scripts/*
-    sudo chmod +x ~/.config/polybar/launch.sh
-    sudo chmod +x ~/.config/rofi/launch.sh
+    sudo chmod +x $HOME/.config/bspwm/layout/layout.sh
+    sudo chmod +x $HOME/.config/bspwm/layout/startup.sh
+    sudo chmod +x $HOME/.config/dunst/reload.sh
+    sudo chmod +x $HOME/.config/polybar/scripts/*
+    sudo chmod +x $HOME/.config/polybar/launch.sh
+    sudo chmod +x $HOME/.config/rofi/launch.sh
 
     echo "\n Imposto lo sfondo"
     mkdir $HOME/Pictures/Wallpapers
     cp Pink-Floyd-Animals-Expanded.jpg $HOME/Pictures/Wallpapers
     nitrogen --set-auto Pictures/Sfondi/Pink-Floyd-Animals-Expanded.jpg
 
-    sed -i '11,17 s/^#//' ~/scripts/startup.sh 
+    sed -i '11,17 s/^#//' $HOME/scripts/startup.sh 
     bspc wm -r
 
     echo "\n Terminato."
@@ -160,18 +160,18 @@ app_themes_IT () {
         0)
             set -x
             git clone https://github.com/BetterDiscord/BetterDiscord.git
-            mv BetterDiscord ~
-            cd ~/BetterDiscord
+            mv BetterDiscord $HOME
+            cd $HOME/BetterDiscord
             npm install
             npm run build
             npm run inject
             set +x
 
-            cd ~/BSPWM_Animals
+            cd $HOME/BSPWM_Animals
 
             echo "Clono il file CSS del tema..."
             wget https://raw.githubusercontent.com/catppuccin/discord/master/Catppuccin.theme.css
-            cp Catppuccin.theme.css ~/.config/BetterDiscord/themes
+            cp Catppuccin.theme.css $HOME/.config/BetterDiscord/themes
 
             echo "Tema installato correttamente. \n"
             read -p "Tornare al menu precedente? (Y/n)" yn
@@ -187,8 +187,8 @@ app_themes_IT () {
             wget https://github.com/catppuccin/gtk/releases/download/v-0.2.7/Catppuccin-Mocha-Mauve.zip
             unzip Catppuccin-Mocha-Mauve.zip -d Catppuccin-Mocha-Mauve-dir
             set -x
-            mkdir ~/.themes
-            cp -r Catppuccin-Mocha-Mauve-dir/ Catppuccin-Mocha-Mauve ~/.themes
+            mkdir $HOME/.themes
+            cp -r Catppuccin-Mocha-Mauve-dir/ Catppuccin-Mocha-Mauve $HOME/.themes
 
             echo "Tema installato correttamente. Non dimenticare di selezionarlo dal tuo gestore dei temi GTK. \n"
             read -p "Tornare al menu precedente? (Y/n)" yn
@@ -215,8 +215,8 @@ app_themes_IT () {
             set -x
             git clone https://github.com/catppuccin/spicetify
             set +x
-            cp -r spicetify/catppuccin-mocha ~/.config/spicetify/Themes/
-            cp spicetify/js/catppuccin-mocha.js ~/.config/spicetify/Extensions/
+            cp -r spicetify/catppuccin-mocha $HOME/.config/spicetify/Themes/
+            cp spicetify/js/catppuccin-mocha.js $HOME/.config/spicetify/Extensions/
 
             echo "Configuro il nuovo tema di Spicetify"
             set -x
@@ -332,8 +332,8 @@ final_step_EN () {
 system_install_EN () {
     clear
     
-    cp -r scripts ~
-    chmod +x ~/scripts/*
+    cp -r scripts $HOME
+    chmod +x $HOME/scripts/*
 
     echo "Installing Window Manager, Display Manager (SDDM) and Alacritty..."
     set -x
@@ -346,8 +346,8 @@ system_install_EN () {
     set +x
 
     echo "\n Copying the conf files"
-    cp -r alacritty bspwm sxhkd ~/.config
-    cp -r Sfondi ~/Pictures
+    cp -r alacritty bspwm sxhkd $HOME/.config
+    cp -r Sfondi $HOME/Pictures
     sudo cp system_files/30-touchpad.conf /etc/X11/xorg.conf
     sudo chown root:root /etc/X11/xorg.conf.d/30-touchpad.conf
 
@@ -355,7 +355,7 @@ system_install_EN () {
     git clone https://aur.archlinux.org/yay.git && cd yay
     makepkg -si
     cd ../BSPWM_Animals
-    rm -rf ~/yay
+    rm -rf $HOME/yay
 
     echo "\n Installing fonts"
     set -x
@@ -378,21 +378,21 @@ main_applications_EN () {
     set +x
 
     echo "\n Copying the conf files..."
-    cp -r dunst picom polybar ranger rofi zathura ~/.config
+    cp -r dunst picom polybar ranger rofi zathura $HOME/.config
     
-    sudo chmod +x ~/.config/bspwm/layout/layout.sh
-    sudo chmod +x ~/.config/bspwm/layout/startup.sh
-    sudo chmod +x ~/.config/dunst/reload.sh
-    sudo chmod +x ~/.config/polybar/scripts/*
-    sudo chmod +x ~/.config/polybar/launch.sh
-    sudo chmod +x ~/.config/rofi/launch.sh
+    sudo chmod +x $HOME/.config/bspwm/layout/layout.sh
+    sudo chmod +x $HOME/.config/bspwm/layout/startup.sh
+    sudo chmod +x $HOME/.config/dunst/reload.sh
+    sudo chmod +x $HOME/.config/polybar/scripts/*
+    sudo chmod +x $HOME/.config/polybar/launch.sh
+    sudo chmod +x $HOME/.config/rofi/launch.sh
 
     echo "Setting the wallpaper..."
     mkdir $HOME/Pictures/Wallpapers
     cp Pink-Floyd-Animals-Expanded.jpg $HOME/Pictures/Wallpapers
     nitrogen --set-auto Pictures/Sfondi/Pink-Floyd-Animals-Expanded.jpg
 
-    sed -i '11,17 s/^#//' ~/scripts/startup.sh 
+    sed -i '11,17 s/^#//' $HOME/scripts/startup.sh 
     bspc wm -r
 
     echo "\n Terminated."
@@ -433,18 +433,18 @@ app_themes_EN () {
         0)
             set -x
             git clone https://github.com/BetterDiscord/BetterDiscord.git
-            mv BetterDiscord ~
-            cd ~/BetterDiscord
+            mv BetterDiscord $HOME
+            cd $HOME/BetterDiscord
             npm install
             npm run build
             npm run inject
             set +x
 
-            cd ~/BSPWM_Animals
+            cd $HOME/BSPWM_Animals
 
             echo "Cloning theme CSS file..."
             wget https://raw.githubusercontent.com/catppuccin/discord/master/Catppuccin.theme.css
-            cp Catppuccin.theme.css ~/.config/BetterDiscord/themes
+            cp Catppuccin.theme.css $HOME/.config/BetterDiscord/themes
 
             echo "Theme successfully installed. \n"
             read -p "Back to previous menu? (Y/n)" yn
@@ -460,8 +460,8 @@ app_themes_EN () {
             wget https://github.com/catppuccin/gtk/releases/download/v-0.2.7/Catppuccin-Mocha-Mauve.zip
             unzip Catppuccin-Mocha-Mauve.zip -d Catppuccin-Mocha-Mauve-dir
             set -x
-            mkdir ~/.themes
-            cp -r Catppuccin-Mocha-Mauve-dir/ Catppuccin-Mocha-Mauve ~/.themes
+            mkdir $HOME/.themes
+            cp -r Catppuccin-Mocha-Mauve-dir/ Catppuccin-Mocha-Mauve $HOME/.themes
 
             echo "Theme successfully installed. Don't forget to select it from your GTK theme manager. \n"
             read -p "Back to previous menu? (Y/n)" yn
@@ -488,8 +488,8 @@ app_themes_EN () {
             set -x
             git clone https://github.com/catppuccin/spicetify
             set +x
-            cp -r spicetify/catppuccin-mocha ~/.config/spicetify/Themes/
-            cp spicetify/js/catppuccin-mocha.js ~/.config/spicetify/Extensions/
+            cp -r spicetify/catppuccin-mocha $HOME/.config/spicetify/Themes/
+            cp spicetify/js/catppuccin-mocha.js $HOME/.config/spicetify/Extensions/
 
             echo "Configuring new Spicetify theme..."
             set -x
