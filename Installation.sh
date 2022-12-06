@@ -36,6 +36,7 @@ install_ITA () {
 
 final_step_IT () {
     clear
+
     echo "Cosa vuoi fare?
     0) Torna al menu principale;
     1) Riavvia il sistema;
@@ -59,39 +60,46 @@ final_step_IT () {
 system_install_IT () {
     clear
 
+    # TO-DO script risoluzione
     cp -r scripts $HOME
     chmod +x $HOME/scripts/*
 
-    echo "Installo Window Manager, Display Manager (SDDM) ed Alacritty..."
+    echo "Installo Window Manager, Display Manager (SDDM) e Alacritty..."
     set -x
     sudo pacman -S bspwm sxhkd nitrogen sddm alacritty arandr
     set +x
 
-    echo "\n Abilito il servizio per il Display Manager e copio i suoi file di configurazione..."
+    printf "\n"
+    echo "Abilito il servizio per il Display Manager e copio i suoi file di configurazione..."
     set -x
+    sudo systemctl disable display-manager.service
     sudo systemctl enable sddm.service
     set +x
 
-    echo "\n Copio i file di configurazione"
     cp -r alacritty bspwm sxhkd $HOME/.config
-    cp -r Sfondi $HOME/Pictures
+
     sudo cp system_files/30-touchpad.conf /etc/X11/xorg.conf.d
     sudo chown root:root /etc/X11/xorg.conf.d/30-touchpad.conf
 
+    printf "\n"
     echo "Installo l'AUR helper YAY..."
     git clone https://aur.archlinux.org/yay.git && cd yay
     makepkg -si
-    cd ../BSPWM_Animals
-    rm -rf $HOME/yay
+    cd ..
+    rm -rf yay
 
-    echo "\n Installo i fonts"
+    printf "\n"
+    echo "Installo i fonts..."
     set -x
     yay -S - < fonts.txt
     set +x
-
-    echo "\n Ricordati di installare i Nerd Fonts, Material Icons e SanFranciscoPro.\n"
-
-    echo "\n È consigliato riavviare il sistema.\n"
+    
+    printf "\n"
+    printf "Ricordati di installare i Nerd Fonts, Material Icons e SanFranciscoPro.\n
+            È consigliato riavviare il sistema.\n"
+    printf "\n"
+    
+    sleep 7
 
     final_step_IT
 }
@@ -99,12 +107,12 @@ system_install_IT () {
 main_applications_IT () {
     clear
 
-    echo "\n Installo le applicazioni principali..."
+    echo "Installo le applicazioni principali..."
     set -x
     yay -S - < programs.txt
     set +x
 
-    echo "\n Copio i file di configurazione"
+    echo "Copio i vari file di configurazione..."
     cp -r dunst picom polybar ranger rofi zathura $HOME/.config
     
     sudo chmod +x $HOME/.config/bspwm/layout/layout.sh
@@ -114,7 +122,10 @@ main_applications_IT () {
     sudo chmod +x $HOME/.config/polybar/launch.sh
     sudo chmod +x $HOME/.config/rofi/launch.sh
 
-    echo "\n Imposto lo sfondo"
+    sleep 5
+
+    printf "\n"
+    echo "Imposto lo sfondo..."
     mkdir $HOME/Pictures/Wallpapers
     cp Pink-Floyd-Animals-Expanded.jpg $HOME/Pictures/Wallpapers
     nitrogen --set-auto Pictures/Sfondi/Pink-Floyd-Animals-Expanded.jpg
@@ -122,19 +133,27 @@ main_applications_IT () {
     sed -i '11,17 s/^#//' $HOME/scripts/startup.sh 
     bspc wm -r
 
-    echo "\n Terminato."
+    printf "\n"
+    echo "Terminato."
+
+    sleep 7
+
     final_step_IT
 }
 
 user_applications_IT () {
     clear
 
-    echo "\n Installo le applicazioni utente..."
+    echo "Installo le applicazioni utente..."
     set -x
     yay -S - < user_programs.txt
     set +x
 
-    echo "\n Terminato."
+    printf "\n"
+    echo "Terminato."
+
+    sleep 7
+
     final_step_IT
 }
 
@@ -173,7 +192,9 @@ app_themes_IT () {
             wget https://raw.githubusercontent.com/catppuccin/discord/master/Catppuccin.theme.css
             cp Catppuccin.theme.css $HOME/.config/BetterDiscord/themes
 
-            echo "Tema installato correttamente. \n"
+            echo "Tema installato correttamente."
+            sleep 3
+            printf "\n"
             read -p "Tornare al menu precedente? (Y/n)" yn
 
             if [ "$yn" = "Y" ] || [ "$yn" = "y" ]; then
@@ -190,7 +211,9 @@ app_themes_IT () {
             mkdir $HOME/.themes
             cp -r Catppuccin-Mocha-Mauve-dir/ Catppuccin-Mocha-Mauve $HOME/.themes
 
-            echo "Tema installato correttamente. Non dimenticare di selezionarlo dal tuo gestore dei temi GTK. \n"
+            echo "Tema installato correttamente. Non dimenticare di selezionarlo dal tuo gestore dei temi GTK."
+            sleep 3
+            printf "\n"
             read -p "Tornare al menu precedente? (Y/n)" yn
 
             if [ "$yn" = "Y" ] || [ "$yn" = "y" ]; then
@@ -198,6 +221,8 @@ app_themes_IT () {
                 themes_menu_IT
             elif [ "$yn" = "N" ] || [ "$yn" = "n" ]; then
                 final_step
+            else
+                exit 0
             fi
             ;;
         2)
@@ -207,10 +232,12 @@ app_themes_IT () {
             curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/resources/install.sh | sh
             set +x 
 
+            printf "\n"
             echo "Spicetify richiede i permessi di scrittura e lettura su Spotify"
             sudo chmod a+wr /opt/spotify
             sudo chmod a+wr /opt/spotify/Apps -R
 
+            printf "\n"
             echo "Clono il tema da GitHub..."
             set -x
             git clone https://github.com/catppuccin/spicetify
@@ -218,7 +245,8 @@ app_themes_IT () {
             cp -r spicetify/catppuccin-mocha $HOME/.config/spicetify/Themes/
             cp spicetify/js/catppuccin-mocha.js $HOME/.config/spicetify/Extensions/
 
-            echo "Configuro il nuovo tema di Spicetify"
+            printf "\n"
+            echo "Configuro il nuovo tema di Spicetify..."
             set -x
             spicetify update
             spicetify config current_theme catppuccin-mocha
@@ -228,14 +256,19 @@ app_themes_IT () {
             spicetify apply
             set +x
 
-            echo "Tema installato correttamente. \n"
+            printf "\n"
+            echo "Tema installato correttamente."
+            sleep 3
+            printf "\n"
             read -p "Tornare al menu precedente? (Y/n)" yn
 
             if [ "$yn" = "Y" ] || [ "$yn" = "y" ]; then
                 rm -rf 
-                themes_menu
+                themes_menu_IT
             elif [ "$yn" = "N" ] || [ "$yn" = "n" ]; then
                 final_step
+            else
+                exit 0
             fi
             ;;
         3)
@@ -246,6 +279,7 @@ app_themes_IT () {
             mv sddm Catppuccin
             sudo cp -r Catppuccin /usr/share/sddm/themes
 
+            printf "\n"
             echo "Imposto il tema per SDDM..."
             sudo rm -rf /usr/lib/sddm/sddm.conf.d/default.conf
             sudo cp system_files/SDDM/Xsetup /usr/share/sddm/scripts/
@@ -255,13 +289,18 @@ app_themes_IT () {
             echo "Fatto.
             È consigliato riavviare il sistema."
 
+            sleep 3
+            
+            printf "\n"
             read -p "Tornare al menu precedente? (Y/n)" yn
 
             if [ "$yn" = "Y" ] || [ "$yn" = "y" ]; then
                 rm -rf 
-                themes_menu
+                themes_menu_IT
             elif [ "$yn" = "N" ] || [ "$yn" = "n" ]; then
                 final_step
+            else
+                exit 0
             fi
             ;;
         4)
@@ -347,15 +386,15 @@ system_install_EN () {
 
     echo "\n Copying the conf files"
     cp -r alacritty bspwm sxhkd $HOME/.config
-    cp -r Sfondi $HOME/Pictures
-    sudo cp system_files/30-touchpad.conf /etc/X11/xorg.conf
+    # cp -r Sfondi $HOME/Pictures
+    sudo cp system_files/30-touchpad.conf /etc/X11/xorg.conf.d
     sudo chown root:root /etc/X11/xorg.conf.d/30-touchpad.conf
 
     echo "Installing YAY, the AUR helper..."
     git clone https://aur.archlinux.org/yay.git && cd yay
     makepkg -si
-    cd ../BSPWM_Animals
-    rm -rf $HOME/yay
+    cd ..
+    rm -rf yay
 
     echo "\n Installing fonts"
     set -x

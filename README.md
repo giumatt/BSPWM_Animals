@@ -1,1 +1,3 @@
-# Animals: BSPWM + Arch Linux 
+# Animals: BSPWM + Arch Linux
+
+WIP!!
