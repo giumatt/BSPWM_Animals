@@ -1,13 +1,14 @@
 #!/bin/bash
 
-firefox &
+# firefox &
+$HOME/scripts/chromium.sh &
 telegram-desktop -startintray &
-alacritty -e ranger Documents/Università &
+# alacritty -e ranger Documents/Università &
 # vscodium -n &
 # spotify &
 thunderbird &
 # discord --start-minimized &
-noisetorch -i -s "alsa_input.usb-FuZhou_Kingwayinfo_CO._LTD_TONOR_TC30_Audio_Device_20200707-00.mono-fallback"
+$HOME/.local/bin/noisetorch -i -s "alsa_input.usb-FuZhou_Kingwayinfo_CO._LTD_TONOR_TC30_Audio_Device_20200707-00.mono-fallback" &
 
 # TEST
 

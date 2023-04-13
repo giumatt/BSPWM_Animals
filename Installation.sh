@@ -277,15 +277,13 @@ app_themes_IT () {
             set -x
             git clone https://github.com/catppuccin/sddm
             set -x
-            mv sddm Catppuccin
-            sudo cp -r Catppuccin /usr/share/sddm/themes
+            sudo cp -r sddm/src/catppuccin-mocha/ usr/share/sddm/themes
 
             printf "\n"
             echo "Imposto il tema per SDDM..."
-            sudo rm -rf /usr/lib/sddm/sddm.conf.d/default.conf
             sudo cp system_files/SDDM/Xsetup /usr/share/sddm/scripts/
-            sudo cp system_files/SDDM/default.conf /usr/lib/sddm/sddm.conf.d/
-            sudo chown root:root /usr/lib/sddm/sddm.conf.d/default.conf
+            sudo cp -r system_files/SDDM/default.conf /etc/
+            sudo chown root:root /etc/sddm.conf.d/default.conf
             sudo chown root:root /usr/share/sddm/scripts/Xsetup
             echo "Fatto.
             È consigliato riavviare il sistema."
@@ -584,15 +582,13 @@ app_themes_EN () {
             set -x
             git clone https://github.com/catppuccin/sddm
             set -x
-            mv sddm Catppuccin
-            sudo cp -r Catppuccin /usr/share/sddm/themes
+            sudo cp -r sddm/src/catppuccin-mocha/ /usr/share/sddm/themes/
 
             printf "\n"
             echo "Setting the theme for SDDM..."
-            sudo rm -rf /usr/lib/sddm/sddm.conf.d/default.conf
             sudo cp system_files/SDDM/Xsetup /usr/share/sddm/scripts/
-            sudo cp system_files/SDDM/default.conf /usr/lib/sddm/sddm.conf.d/
-            sudo chown root:root /usr/lib/sddm/sddm.conf.d/default.conf
+            sudo cp -r system_files/SDDM/sddm.conf.d /etc
+            sudo chown root:root /etc/sddm.conf.d/default.conf
             sudo chown root:root /usr/share/sddm/scripts/Xsetup
             echo "Done.
             Is suggested to reboot the system."

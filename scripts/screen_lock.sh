@@ -7,7 +7,7 @@ date=7aa2f7
 verify=7aa2f7
 
 lock_Internal() {
-    i3lock -n --force-clock -i ~/Pictures/Sfondi/Pink-Floyd-Animals-Expanded.jpg \
+    i3lock -n --force-clock -i ~/Pictures/Wallpapers/Pink-Floyd-Animals-Expanded.jpg \
     -e --indicator --radius=20 --ring-width=40 --inside-color=$fg \
     --ring-color=$fg --insidever-color=$verify --ringver-color=$verify \
     --insidewrong-color=$wrong --ringwrong-color=$wrong --line-uses-inside \
@@ -23,7 +23,7 @@ lock_Internal() {
 }
 
 lock_External() {
-    i3lock -n --force-clock -i ~/Pictures/Sfondi/Pink-Floyd-Animals-Expanded.jpg \
+    i3lock -n --force-clock -i ~/Pictures/Wallpapers/Pink-Floyd-Animals-Expanded.jpg \
     -e --indicator --radius=20 --ring-width=40 --inside-color=$fg \
     --ring-color=$fg --insidever-color=$verify --ringver-color=$verify \
     --insidewrong-color=$wrong --ringwrong-color=$wrong --line-uses-inside \

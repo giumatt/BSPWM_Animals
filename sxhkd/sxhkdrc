@@ -2,9 +2,9 @@
 # wm independent hotkeys
 #
 
-# terminal emulator
-super + Return
-	alacritty
+# terminal emulator && scratchpad
+super + {_,shift +} Return
+	{alacritty, bspc rule -a \* -o state=floating && alacritty}
 
 # program launcher
 super + d
@@ -174,3 +174,5 @@ XF86AudioPlay
 XF86AudioStop
 	playerctl stop -p spotify
 
+shift + XF86AudioMute
+	pactl set-source-mute @DEFAULT_SOURCE@ toggle

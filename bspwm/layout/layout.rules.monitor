@@ -1,6 +1,3 @@
 bspc rule -a Alacritty:Alacritty -o node=@^1:^1:/
-bspc rule -a firefox:Navigator -o node=@^1:^2:/
-bspc rule -a Alacritty:Alacritty -o node=@^1:^3:/
-bspc rule -a VSCodium:vscodium -o node=@^1:^4:/
-bspc rule -a : -o node=@^1:^7:/
+bspc rule -a Chromium:chromium -o node=@^1:^2:/
 bspc rule -a thunderbird:Mail -o node=@^1:^10:/
