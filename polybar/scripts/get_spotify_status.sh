@@ -29,11 +29,11 @@ else
 fi
 
 if [ "$STATUS" = "Paused"  ]; then
-    update_hooks "$PARENT_BAR_PID" 1
+	update_hooks "$PARENT_BAR_PID" 1
     # playerctl --player=$PLAYER metadata --format "$FORMAT"
 elif [ "$STATUS" = "Playing" ]; then
-    update_hooks "$PARENT_BAR_PID" 2
+	update_hooks "$PARENT_BAR_PID" 2
     # playerctl --player=$PLAYER metadata --format "$FORMAT"
 elif [ "$STATUS" = "No player is running"  ]; then
-        update_hooks "$PARENT_BAR_PID" 1
+	update_hooks "$PARENT_BAR_PID" 1
 fi
