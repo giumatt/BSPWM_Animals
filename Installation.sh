@@ -228,12 +228,6 @@ app_themes_IT () {
             fi
             ;;
         2)
-            echo "Installo Spicetify"
-            set -x
-            curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh
-            curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/resources/install.sh | sh
-            set +x 
-
             printf "\n"
             echo "Spicetify richiede i permessi di scrittura e lettura su Spotify"
             sudo chmod a+wr /opt/spotify
@@ -250,6 +244,7 @@ app_themes_IT () {
             printf "\n"
             echo "Configuro il nuovo tema di Spicetify..."
             set -x
+	        spicetify backup apply
             spicetify update
             spicetify config current_theme catppuccin-mocha
             spicetify config color_scheme mauve
@@ -262,7 +257,7 @@ app_themes_IT () {
             echo "Tema installato correttamente."
             sleep 3
             printf "\n"
-            read -p "Tornare al menu precedente? (Y/n)" yn
+            read -p "Tornare al menu precedente? (Y/n): " yn
 
             if [ "$yn" = "Y" ] || [ "$yn" = "y" ]; then
                 themes_menu_IT
@@ -534,13 +529,6 @@ app_themes_EN () {
             fi
             ;;
         2)
-            echo "Installing Spicetify...1"
-            set -x
-            curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh
-            curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/resources/install.sh | sh
-            set +x 
-
-            printf "\n"
             echo "Spicetify requires write and read permission on Spotify"
             sudo chmod a+wr /opt/spotify
             sudo chmod a+wr /opt/spotify/Apps -R
@@ -555,7 +543,8 @@ app_themes_EN () {
 
             printf "\n"
             echo "Configuring new Spicetify theme..."
-            set -x
+	        set -x
+	        spicetify backup apply
             spicetify update
             spicetify config current_theme catppuccin-mocha
             spicetify config color_scheme mauve
@@ -563,7 +552,7 @@ app_themes_EN () {
             spicetify config extensions catppuccin-mocha.js
             spicetify apply
             set +x
-
+	    
             printf "\n"
             echo "Theme installed succesfully."
             sleep 3

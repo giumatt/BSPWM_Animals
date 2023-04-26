@@ -18,6 +18,7 @@ multimc-bin
 obs-studio
 playerctl
 spotify
+spicetify-cli
 steam
 teams
 teamviewer
