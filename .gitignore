@@ -9,3 +9,9 @@ Installation.sh
 programs.txt
 
 user_programs.txt
+
+scripts/chromium.sh
+
+scripts/minestart.sh
+
+scripts/speedtest
