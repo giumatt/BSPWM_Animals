@@ -1,3 +1,6 @@
 bspc rule -a Alacritty:Alacritty -o node=@^1:^1:/
-bspc rule -a Chromium:chromium -o node=@^1:^2:/
-bspc rule -a thunderbird:Mail -o node=@^1:^10:/
+bspc rule -a Google-chrome:google-chrome -o node=@^1:^2:/
+bspc rule -a Alacritty:Alacritty -o node=@^1:^3:/
+bspc rule -a Spotify:spotify -o node=@^1:^9:/
+bspc rule -a Pavucontrol:pavucontrol -o node=@^1:^10:/1
+bspc rule -a thunderbird:Mail -o node=@^1:^10:/2

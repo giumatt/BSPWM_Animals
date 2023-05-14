@@ -146,7 +146,7 @@ super + shift + s
 
 # Rofi todo
 alt + shift + a
-	rofi -modi TODO:$HOME/.config/scripts/rofi-todo.sh -show TODO -theme ~/.config/rofi/app_menu/style.rasi
+	rofi -modi TODO:$HOME/scripts/rofi-todo.sh -show TODO -theme "~/.config/rofi/themes/todo.rasi"
 
 # Notification center
 super + z
@@ -154,10 +154,10 @@ super + z
 
 # Audio settings
 XF86AudioRaiseVolume
-	pactl set-sink-volume @DEFAULT_SINK@ +5%
+	pactl set-sink-volume @DEFAULT_SINK@ +2%
 
 XF86AudioLowerVolume
-	pactl set-sink-volume @DEFAULT_SINK@ -5%
+	pactl set-sink-volume @DEFAULT_SINK@ -2%
 
 XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle

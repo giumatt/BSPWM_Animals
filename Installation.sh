@@ -181,17 +181,18 @@ app_themes_IT () {
             set -x
             git clone https://github.com/BetterDiscord/BetterDiscord.git
             mv BetterDiscord $HOME
+	    af=$(pwd)
             cd $HOME/BetterDiscord
-            npm install
-            npm run build
-            npm run inject
+            sudo npm install -g pnpm
+            pnpm install
+            pnpm build
+	    pnpm inject
             set +x
 
-            cd $HOME/BSPWM_Animals
-
+            cd $af
             echo "Clono il file CSS del tema..."
-            wget https://raw.githubusercontent.com/catppuccin/discord/master/Catppuccin.theme.css
-            cp Catppuccin.theme.css $HOME/.config/BetterDiscord/themes
+            wget https://raw.githubusercontent.com/catppuccin/discord/main/themes/mocha.theme.css
+            mv mocha.theme.css $HOME/.config/BetterDiscord/themes
 
             echo "Tema installato correttamente."
             sleep 3
@@ -485,17 +486,18 @@ app_themes_EN () {
             set -x
             git clone https://github.com/BetterDiscord/BetterDiscord.git
             mv BetterDiscord $HOME
+	    af=$(pwd)
             cd $HOME/BetterDiscord
-            npm install
-            npm run build
-            npm run inject
+            sudo npm install -g pnpm
+	    pnpm install
+	    pnpm build
+	    pnpm inject
             set +x
 
-            cd $HOME/BSPWM_Animals
-
+            cd $af
             echo "Cloning theme CSS file..."
-            wget https://raw.githubusercontent.com/catppuccin/discord/master/Catppuccin.theme.css
-            cp Catppuccin.theme.css $HOME/.config/BetterDiscord/themes
+            wget https://raw.githubusercontent.com/catppuccin/discord/main/themes/mocha.theme.css
+            mv mocha.theme.css $HOME/.config/BetterDiscord/themes
 
             echo "Theme successfully installed."
             sleep 3
@@ -505,7 +507,7 @@ app_themes_EN () {
             if [ "$yn" = "Y" ] || [ "$yn" = "y" ]; then
                 themes_menu_EN
             elif [ "$yn" = "N" ] || [ "$yn" = "n" ]; then
-                final_step
+                final_step_EN
             fi
             ;;
         1)
@@ -601,8 +603,6 @@ app_themes_EN () {
             ;;
     esac
 }
-
-# dj
 
 # Main function
 read -p "Select your language (IT or EN): " language

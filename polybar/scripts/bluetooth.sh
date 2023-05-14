@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if bluetoothctl show | grep -q "Powered: no"; then
     bluetoothctl power on >> /dev/null

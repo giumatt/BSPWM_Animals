@@ -1,0 +1,129 @@
+/*
+* {
+    background:                 #0B0F10;
+    background-secondary:       #101415;
+    foreground:                 #C5C8C9;
+    accent:                     #7BA5DD;
+
+    text-color:                 @fg;
+    border-color:               #131718;
+    javacafe-blue:              #BAC8EF;
+    green:                      #96D6B0;
+    magenta:                    #CB92D2;
+}
+*/
+
+* {
+    background:  #1e1e2e;
+    background-alt: #1e1e2e;
+    border-col: #bb9af7;
+    selected: #1e1e2e;
+    urgent: #11111b;
+    active: #89b4fa;
+    blue: #89b4fa;
+    foreground: #cdd6f4;
+    foreground2: #f38ba8;
+    grey: #6c7086;
+    width: 600;
+    font: "SanFranciscoPro Display 12";
+}
+
+/*
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+window {
+    height: 360px;
+    border: 2px;
+    border-color: @border-col;
+    background-color: @background;
+}
+
+mainbox {
+    background-color: @background;
+}
+
+inputbar {
+    children: [prompt,entry];
+    background-color: @background;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+prompt {
+    background-color: @blue;
+    padding: 6px;
+    text-color: @background;
+    border-radius: 3px;
+    margin: 20px 0px 0px 20px;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+}
+
+entry {
+    padding: 6px;
+    margin: 20px 0px 0px 10px;
+    text-color: @foreground;
+    background-color: @background;
+}
+
+listview {
+    border: 0px 0px 0px;
+    padding: 6px 0px 0px;
+    margin: 10px 0px 0px 20px;
+    columns: 2;
+    lines: 5;
+    background-color: @background;
+}
+
+element {
+    padding: 5px;
+    background-color: @background;
+    text-color: @foreground  ;
+}
+
+element-icon {
+    size: 25px;
+}
+
+element selected {
+    background-color:  @selected ;
+    text-color: @foreground2  ;
+}
+
+mode-switcher {
+    spacing: 0;
+  }
+
+button {
+    padding: 10px;
+    background-color: @background;
+    text-color: @grey;
+    vertical-align: 0.5; 
+    horizontal-align: 0.5;
+}
+
+button selected {
+  background-color: @background;
+  text-color: @blue;
+}
+
+message {
+    background-color: @background;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+textbox {
+    padding: 6px;
+    margin: 20px 0px 0px 20px;
+    text-color: @blue;
+    background-color: @background;
+}
+*/

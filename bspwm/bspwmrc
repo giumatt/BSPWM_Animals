@@ -24,5 +24,6 @@ bspc config click_to_focus	 	    true
 bspc config focus_follows_pointer 	true
 bspc config ignore_ewmh_focus		true
 
-# Rule for padding using internal monitor as primary to exclude polybar padding
+# Rule for padding using internal monitor as primary (or second screen) in order to exclude polybar padding
 # bspc config -m HDMI-A-0 top_padding 5
+# bspc config -m eDP top_padding 5

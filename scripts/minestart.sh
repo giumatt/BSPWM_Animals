@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# A usaeful script capable to renice Minecraft process (Java) in order to increase the priority.
+# I use it during startup of big modded servers.
+
 PID=$(sudo pidof java)
 
 if [[ $1 = "start" ]]; then

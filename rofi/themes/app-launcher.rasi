@@ -13,12 +13,13 @@ configuration {
 /*****----- Global Properties -----*****/
 * {
     font:                        "SanFranciscoPro Display 12";
-    background:                  #181825;
+    background:                  #1e1e2e;    //#181825;
     background-alt:              #181825;
-    foreground:                  #cdd6f4;
+    foreground:                  #a9b1d6;    //#cdd6f4;
     selected:                    #11111b;
     active:                      #89b4fa;
     urgent:                      #11111b;
+    border-col:                  #bb9af7;
 }
 
 /*****----- Main Window -----*****/
@@ -34,7 +35,9 @@ window {
 
     /* properties for all widgets */
     enabled:                     true;
-    border-radius:               20px;
+    border:                      1px;
+    border-radius:               10px;
+    border-color:                @border-col;
     cursor:                      "default";
     background-color:            @background;
 }
@@ -60,13 +63,14 @@ listbox {
 inputbar {
     enabled:                     true;
     spacing:                     10px;
-    padding:                     50px 40px 50px 30px;
+    padding:                     57px 40px 57px 40px;
     background-color:            transparent;
-    background-image:            url("~/Pictures/Sfondi/Sfondo_DarkHole_rofi.png", width);
+    background-image:            url("~/Pictures/Wallpapers/Sfondo_DarkHole_rofi.png", width);
     text-color:                  @foreground;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry", "dummy", "mode-switcher" ];
 }
+
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
@@ -76,6 +80,7 @@ textbox-prompt-colon {
     background-color:            @background-alt;
     text-color:                  inherit;
 }
+
 entry {
     enabled:                     true;
     expand:                      false;
@@ -88,6 +93,7 @@ entry {
     placeholder:                 "Search";
     placeholder-color:           inherit;
 }
+
 dummy {
     expand:                      true;
     background-color:            transparent;
@@ -100,14 +106,16 @@ mode-switcher{
     background-color:            transparent;
     text-color:                  @foreground;
 }
+
 button {
     width:                       49px;
-    padding:                     8px 0px 8px 8px;
+    padding:                     8px 0px 8px 4px;
     border-radius:               100%;
     background-color:            @background-alt;
     text-color:                  inherit;
     cursor:                      pointer;
 }
+
 button selected {
     background-color:            @selected;
     text-color:                  @foreground;
@@ -142,36 +150,44 @@ element {
     text-color:                  @foreground;
     cursor:                      pointer;
 }
+
 element normal.normal {
     background-color:            inherit;
     text-color:                  inherit;
 }
+
 element normal.urgent {
     background-color:            @urgent;
     text-color:                  @foreground;
 }
+
 element normal.active {
     background-color:            @background;
     text-color:                  @active;
 }
+
 element selected.normal {
     background-color:            @selected;
     text-color:                  @foreground;
 }
+
 element selected.urgent {
     background-color:            @urgent;
     text-color:                  @foreground;
 }
+
 element selected.active {
     background-color:            @urgent;
     text-color:                  @active;
 }
+
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
     size:                        32px;
     cursor:                      inherit;
 }
+
 element-text {
     background-color:            transparent;
     text-color:                  inherit;
@@ -184,6 +200,7 @@ element-text {
 message {
     background-color:            transparent;
 }
+
 textbox {
     padding:                     12px;
     border-radius:               100%;
@@ -192,6 +209,7 @@ textbox {
     vertical-align:              0.5;
     horizontal-align:            0.0;
 }
+
 error-message {
     padding:                     12px;
     border-radius:               20px;
